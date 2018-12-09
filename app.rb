@@ -4,7 +4,7 @@ module FormsLab
   class App < Sinatra::Base
 
     get '/' do
-      erb :root
+      # erb :root
     end
 
     get '/new' do
@@ -12,6 +12,7 @@ module FormsLab
     end
 
     post '/pirates' do
+
       params["pirate"]["ships"].each do |data|
         Ship.new(data["name"], data["type"], data["booty"])
       end
@@ -19,7 +20,6 @@ module FormsLab
       @ships=Ship.all
       erb :'pirates/show'
     end
-
 
   end
 end
